@@ -220,15 +220,10 @@ install_fallback() {
       ;;
     virtualbox)
       echo -e "${YELLOW}⚠️ Installing VirtualBox from Oracle repository...${RESET}"
-      sudo bash -c 'cat > /etc/yum.repos.d/virtualbox.repo <<"EOF"
-[virtualbox]
-name=VirtualBox for Fedora $releasever - $basearch
-baseurl=https://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
-enabled=1
-gpgcheck=1
-gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
-EOF'
-      if sudo dnf5 install -y VirtualBox; then
+      sudo wget -O /etc/yum.repos.d/virtualbox.repo https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+      sudo rpm --import https://www.virtualbox.org/download/oracle_vbox.asc
+      sudo rpm --import https://www.virtualbox.org/download/oracle_vbox_2016.asc
+      if sudo dnf5 install -y VirtualBox-7.0; then
         install_status["virtualbox"]="✅ Installed via fallback"
       else
         install_status["virtualbox"]="❌ Fallback Failed"

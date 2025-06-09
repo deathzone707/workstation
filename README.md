@@ -65,6 +65,7 @@ chmod +x fedora_security_setup_interactive.sh
 - The script uses `dnf` and `flatpak` (where applicable).
 - SELinux is enforced and Secure Boot is supported by default.
 - Script sets `zsh` as the default shell and prepares for dotfile syncing.
+- Upstream virtualization installs may require additional GPG keys.
 
 ---
 
