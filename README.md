@@ -20,6 +20,8 @@ This script bootstraps a world-class Fedora workstation environment tailored for
 ✅ Secure-by-default Fedora configuration (SELinux, Firewalld, TPM-ready)
 ✅ Developer stack for modern languages and IaC workflows
 ✅ Local virtualization with VirtualBox, Vagrant, Packer, and Ansible
+   (uses official upstream sources if not in Fedora repos)
+=======
 
 ---
 
