@@ -38,7 +38,7 @@ This script bootstraps a world-class Fedora workstation environment tailored for
 ### 1. Clone or download the script
 
 ```bash
-wget https://your.domain/fedora_security_setup_interactive.sh
+git clone git@github.com:deathzone707/workstation.git
 chmod +x fedora_security_setup_interactive.sh
 ```
 
@@ -59,7 +59,7 @@ chmod +x fedora_security_setup_interactive.sh
 ## 🧰 Notes
 
 - You must run this on **Fedora Workstation 40+**.
-- The script uses `dnf`, `toolbox`, and `flatpak` (where applicable).
+- The script uses `dnf` and `flatpak` (where applicable).
 - SELinux is enforced and Secure Boot is supported by default.
 - Script sets `zsh` as the default shell and prepares for dotfile syncing.
 
@@ -83,5 +83,5 @@ MIT License. Feel free to fork, improve, or adapt to your team’s needs.
 ## ✉️ Maintainer
 
 **Austin Dunn**  
-Principal Security Engineer  
-[Your contact/email or GitHub link]
+Security Engineer  
+austin@austindunn.us
