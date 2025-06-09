@@ -218,6 +218,31 @@ install_fallback() {
         install_status["google-cloud-sdk"]="❌ Fallback Failed"
       fi
       ;;
+    virtualbox)
+      echo -e "${YELLOW}⚠️ Installing VirtualBox from Oracle repository...${RESET}"
+      sudo bash -c 'cat > /etc/yum.repos.d/virtualbox.repo <<"EOF"
+[virtualbox]
+name=VirtualBox for Fedora $releasever - $basearch
+baseurl=https://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+EOF'
+      if sudo dnf5 install -y VirtualBox; then
+        install_status["virtualbox"]="✅ Installed via fallback"
+      else
+        install_status["virtualbox"]="❌ Fallback Failed"
+      fi
+      ;;
+    packer)
+      echo -e "${YELLOW}⚠️ Installing Packer via direct binary fallback...${RESET}"
+      PACKER_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/packer | jq -r .current_version)
+      curl -LO "https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip"
+      unzip packer_${PACKER_VERSION}_linux_amd64.zip
+      sudo mv packer /usr/local/bin/
+      rm packer_${PACKER_VERSION}_linux_amd64.zip
+      install_status["packer"]="✅ Installed via fallback"
+      ;;
     firejail-profiles)
       echo -e "${YELLOW}⚠️ firejail-profiles is no longer packaged separately.${RESET}"
       echo -e "${YELLOW}✅ Default profiles are included with firejail itself.${RESET}"
@@ -305,7 +330,8 @@ install_defensive_tools() {
 
 install_cloud_tools() {
   echo -e "${BLUE}☁️ Installing Cloud & Container Tools...${RESET}"
-  safe_install terraform awscli kubectl azure-cli google-cloud-sdk
+  safe_install terraform awscli kubectl azure-cli google-cloud-sdk \
+    vagrant ansible virtualbox packer
 }
 
 install_privacy_tools() {
