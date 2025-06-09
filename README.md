@@ -17,8 +17,9 @@ This script bootstraps a world-class Fedora workstation environment tailored for
 ✅ App sandboxing with Firejail and Flatpak  
 ✅ Toolbox-based developer environments  
 ✅ Full offensive & defensive security toolchain (Kali-like)  
-✅ Secure-by-default Fedora configuration (SELinux, Firewalld, TPM-ready)  
-✅ Developer stack for modern languages and IaC workflows  
+✅ Secure-by-default Fedora configuration (SELinux, Firewalld, TPM-ready)
+✅ Developer stack for modern languages and IaC workflows
+✅ Local virtualization with VirtualBox, Vagrant, Packer, and Ansible
 
 ---
 
@@ -27,7 +28,7 @@ This script bootstraps a world-class Fedora workstation environment tailored for
 1. **Developer Tools** – Compilers, languages, containers, shells  
 2. **Offensive Security** – Pentesting tools, password crackers, fuzzers  
 3. **Defensive Security** – DFIR, forensic suites, system auditing  
-4. **Cloud & Container** – AWS/GCP/Azure CLIs, Kubernetes, Terraform  
+4. **Cloud & Container** – AWS/GCP/Azure CLIs, Kubernetes, Terraform, Vagrant, Ansible, VirtualBox, Packer
 5. **Privacy & Sandboxing** – Firejail, firewall setup, application isolation  
 6. **All of the Above** – Complete workstation deployment  
 

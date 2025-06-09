@@ -305,7 +305,8 @@ install_defensive_tools() {
 
 install_cloud_tools() {
   echo -e "${BLUE}☁️ Installing Cloud & Container Tools...${RESET}"
-  safe_install terraform awscli kubectl azure-cli google-cloud-sdk
+  safe_install terraform awscli kubectl azure-cli google-cloud-sdk \
+    vagrant ansible virtualbox packer
 }
 
 install_privacy_tools() {
